@@ -13,6 +13,8 @@ import AboutUsPage from "./pages/about-us-page/aboutUsPage";
 import Terms from "./pages/terms-condition/termsCondition";
 import Policy from "./pages/privacy-policy/Policy";
 import PageMe from "./pages/pageme/PageMe";
+// import PhotoGallery from "./pages/photo-gallery/index"
+import NewGallery from "./pages/photo-gallery/NewGallery";
 
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/terms-and-condition" element={<Terms />} />
           <Route path="/policy" element={<Policy />} />
+          <Route path="/photo-gallery" element={<NewGallery />} />
         </Routes>
         <Footer />
       </BrowserRouter>
