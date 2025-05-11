@@ -2,25 +2,23 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-  Grid,
   ImageList,
   ImageListItem,
   useMediaQuery,
 } from "@mui/material";
-import ComingSoon from "../../components/coming-soon/comingSoon";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   btnTextPhoto,
   photoGalleryData,
   vipPhotosData,
 } from "../../data/photo-gallery-data";
-import "./photoGallery.scss";
-import { useEffect, useState } from "react";
 import ServicesButton from "../../components/all-services/services-button";
 import { btnClickHandler, handleImgClick, srcset } from "./helper";
-import { useNavigate, useParams } from "react-router-dom";
+import "./photoGallery.scss";
 
 const PhotoGallery = () => {
-  const [allData, setData] = useState(null);
+  const [allData, setData] = useState([]);
   const [dialogOpen, setDialogOpen] = useState({
     state: false,
     img: null,
@@ -30,6 +28,7 @@ const PhotoGallery = () => {
   const { id } = useParams();
   const isDesktopScreen = useMediaQuery("(min-width: 1000px)");
 
+  // ✅ Load Data based on Category (VIP or All Photos)
   useEffect(() => {
     if (id === "vip-photos") {
       setData(vipPhotosData);
@@ -44,6 +43,7 @@ const PhotoGallery = () => {
         Photo <span>Gallery</span>
       </h1>
 
+      {/* ✅ Category Buttons */}
       <div className="btn-container">
         {btnTextPhoto.map((btn) => (
           <ServicesButton
@@ -57,41 +57,57 @@ const PhotoGallery = () => {
         ))}
       </div>
 
+      {/* ✅ Image List */}
       <ImageList
         sx={{
-          maxWidth: 1200,
-          maxHeight: 1200,
-          width: "100%",
+          maxWidth: "100%",
           padding: "0.5rem",
         }}
         variant="quilted"
-        cols={4}
-        rowHeight={121}
+        cols={isDesktopScreen ? 4 : 2}
+        rowHeight={180}
       >
-        {allData?.map((item) => (
-          <ImageListItem
-            key={item.img}
-            cols={item.cols || 1}
-            rows={item.rows || 1}
-          >
-            <img
-              {...srcset(item.img, 121, item.rows, item.cols)}
-              alt={item.title}
-              loading="lazy"
-              onClick={() =>
-                handleImgClick(item.img, item.title, setDialogOpen)
-              }
-            />
-          </ImageListItem>
-        ))}
+        {allData?.length > 0 ? (
+          allData.map((item, index) => (
+            <ImageListItem
+              key={index}
+              cols={item.cols || 1}
+              rows={item.rows || 1}
+              onClick={() => handleImgClick(item.img, item.title, setDialogOpen)}
+              className="clickable-image"
+            >
+              <img
+                {...srcset(item.img, 180, item.rows, item.cols)}
+                alt={item.title || "Image"}
+                loading="lazy"
+                style={{ cursor: "pointer", borderRadius: "8px" }}
+              />
+            </ImageListItem>
+          ))
+        ) : (
+          <div className="no-images">No images available in this category.</div>
+        )}
       </ImageList>
+
+      {/* ✅ Image Preview Dialog */}
       <Dialog
         open={dialogOpen.state}
         onClose={() => setDialogOpen({ img: null, state: false, title: "" })}
+        maxWidth="md"
+        fullWidth
       >
-        <DialogTitle></DialogTitle>
+        <DialogTitle>{dialogOpen.title}</DialogTitle>
         <DialogContent>
-          <img loading="lazy" src={dialogOpen.img} alt={dialogOpen.title} />
+          {dialogOpen.img ? (
+            <img
+              loading="lazy"
+              src={dialogOpen.img}
+              alt={dialogOpen.title}
+              style={{ width: "100%", borderRadius: "8px" }}
+            />
+          ) : (
+            <p>No Image Selected</p>
+          )}
         </DialogContent>
       </Dialog>
     </main>

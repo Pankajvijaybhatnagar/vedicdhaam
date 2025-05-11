@@ -1,10 +1,15 @@
 // ✅ Dynamic Image Import using Vite's import.meta.glob
-const imagePaths = import.meta.glob("../assets/pics/*.{jpg,jpeg,png,mp4}", { eager: true });
+const imagePaths = import.meta.glob("/src/assets/pics/*.{jpg,jpeg,png,mp4}", { eager: true });
 
 // ✅ Function to get image by filename
 function getImage(filename) {
-  const path = `../assets/pics/${filename}`;
-  return imagePaths[path] || null;
+  const path = `/src/assets/pics/${filename}`;
+  if (imagePaths[path]) {
+    return imagePaths[path];
+  } else {
+    console.error(`Image not found: ${filename}`);
+    return null;
+  }
 }
 
 // ✅ Button Text for Category
@@ -35,7 +40,7 @@ export const vipPhotosData = [
   getImage("18.jpg") ? { img: getImage("18.jpg"), title: "VIP Photo 18", rows: 3, cols: 2 } : null,
   getImage("19.jpg") ? { img: getImage("19.jpg"), title: "VIP Photo 19", rows: 3, cols: 2 } : null,
   getImage("20.jpg") ? { img: getImage("20.jpg"), title: "VIP Photo 20", rows: 3, cols: 2 } : null,
-].filter(Boolean); // ✅ Automatically remove any missing images
+].filter(Boolean);
 
 // ✅ Complete Photo Gallery Data (All Photos and Videos)
 export const photoGalleryData = Object.keys(imagePaths).map((path) => ({
