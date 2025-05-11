@@ -6,9 +6,9 @@ export const contactData = {
   info: {
     head: "Talk to us",
     para: "Unsure about how it Works? Do you have questions or require further information? Let's initiate a conversation.",
-    phoneNo: "918708042248",
-    email: "info@bigbyteworld.com",
-    address: "plot no 151 sector -2 kkr",
+    phoneNo: "919215223030",
+    email: "tarunsarsvat@gmail.com",
+    address: "Near SJK  Mandir kalanaur, Haryana, india",
   },
   // these links must include https:// in front
   socialMedia: {
