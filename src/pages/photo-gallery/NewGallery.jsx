@@ -2,12 +2,12 @@ import React from 'react';
 
 const NewGallery = () => {
     const media = [
-        { type: "image", src: "src/assets/pics/1.jpg", alt: "Image 1" },
-        { type: "video", src: "src/assets/pics/2.mp4", alt: "Image 2" },
-        { type: "image", src: "src/assets/pics/3.jpg", alt: "Image 3" },
-        { type: "image", src: "src/assets/pics/4.jpg", alt: "Image 4" },
-        { type: "image", src: "src/assets/pics/5.jpg", alt: "Image 5" },
-        { type: "image", src: "src/assets/pics/16.jpg", alt: "Image 16" },
+        { type: "image", src: "/pics/1.jpg", alt: "Image 1" },
+        { type: "video", src: "/pics/2.mp4", alt: "Image 2" },
+        { type: "image", src: "/pics/3.jpg", alt: "Image 3" },
+        { type: "image", src: "/pics/4.jpg", alt: "Image 4" },
+        { type: "image", src: "/pics/5.jpg", alt: "Image 5" },
+        { type: "image", src: "/pics/16.jpg", alt: "Image 16" },
     ];
 
     return (
