@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="footer-right">
-      BigByteinnovation Pvt © 2024 All Rights Reserved
+      Digi1xprt Pvt © 2025 All Rights Reserved
       </p>
     </div>
   );
