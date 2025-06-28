@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { mainData } from "./mainData";
 import "./main.scss";
 import Typed from "typed.js";
-import homeImg from "../../assets/pics/16.jpg";
+import homeImg from "/pics/16.jpg";
 import CustomButton from "../custom-button";
 import left from "../../assets/pLeft.webp";
 import right from "../../assets/pRight.webp";

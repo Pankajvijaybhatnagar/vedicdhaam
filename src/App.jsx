@@ -15,6 +15,7 @@ import Policy from "./pages/privacy-policy/Policy";
 import PageMe from "./pages/pageme/PageMe";
 // import PhotoGallery from "./pages/photo-gallery/index"
 import NewGallery from "./pages/photo-gallery/NewGallery";
+import DailyDarshan from "./pages/daily-darshan";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/daily-darshan" element={<DailyDarshan />} />
           <Route path="/allpujas/:id" element={<AllPujaServices />} />
           <Route path="/dharmik" element={<PageMe/>} />
           <Route path="/puja/:id" element={<PujaPage />} />
