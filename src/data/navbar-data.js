@@ -11,5 +11,6 @@ export const navbarData = {
     { title: "Photo Gallery", link: "/photo-gallery" },
     { title: "Astrology", link: "/astrology" },
     { title: "Contact Us", link: "/contact" },
+    { title: "login", link: "/login" },
   ],
 };
