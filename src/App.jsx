@@ -17,6 +17,9 @@ import PageMe from "./pages/pageme/PageMe";
 import NewGallery from "./pages/photo-gallery/NewGallery";
 import DailyDarshan from "./pages/daily-darshan";
 import AdminHome from "./pages/admin";
+import AdminDailyDarshan from "./pages/admin/DailyDarshan";
+import LoginPage from "./components/login/LoginPage";
+import AuthLayout from "./utils/AuthLayout";
 
 
 function App() {
@@ -42,7 +45,9 @@ function App() {
           <Route path="/policy" element={<Policy />} />
           <Route path="/photo-gallery" element={<NewGallery />} />
 
-          <Route path="/admin" element={<AdminHome />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/admin" element={<AuthLayout><AdminHome /></AuthLayout>} />
+          <Route path="/admin/daily-darshan" element={<AuthLayout><AdminDailyDarshan /></AuthLayout>} />
         </Routes>
         <Footer />
       </BrowserRouter>

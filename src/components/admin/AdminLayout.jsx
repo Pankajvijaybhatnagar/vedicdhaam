@@ -1,19 +1,19 @@
-import React from 'react'
+import React from 'react';
+import Menus from './Menus';
+import './adminLayout.scss';
 
-const AdminLayout = ({childrens}) => {
+const AdminLayout = ({ children }) => {
   return (
-    <div className='container' style={{marginTop: '100px'}}>
-        <header className="admin-header">
-            <h1>Admin Dashboard</h1>
-        </header>
-        <main className="admin-main">
-            {childrens}
-        </main>
-        <footer className="admin-footer">
-            <p>&copy; 2023 VedicDhaam Admin</p>
-        </footer>
-    </div>
-  )
-}
+    <div className="admin-container">
+      <aside className="admin-aside">
+        <Menus />
+      </aside>
 
-export default AdminLayout
+      <main className="admin-main">
+        {children}
+      </main>
+    </div>
+  );
+};
+
+export default AdminLayout;

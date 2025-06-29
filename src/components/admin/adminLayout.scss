@@ -1,0 +1,38 @@
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  margin-top: 70px;
+}
+
+.admin-aside {
+  width: 240px;
+  background-color: #f8f8f8;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  min-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+/* Optional: Responsive */
+@media (max-width: 768px) {
+  .admin-container {
+    flex-direction: column;
+  }
+
+  .admin-aside {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+}
