@@ -19,14 +19,27 @@ const CreateDailyDarshan = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Description</label>
-                        <textarea id="description" name="description" required></textarea>
+                        <textarea rows={12} id="description" name="description" required></textarea>
                     </div>
                     <button type="submit" >Create </button>
                 </div>
                 <div className='right'>
                     <div className="form-group">
-                        <label htmlFor="video">Video</label>
-                        <input type="file" name="video" id="video" />
+                        <label className='videoInput' htmlFor="video">
+                            <span>Video</span>
+                            <input required type="file" name="video" id="video" />
+                            <span style={{fontSize:10}}>click to change</span>
+                        </label>
+                    </div>
+                    <div className="form-group ">
+                        <label className='thumbnial' htmlFor="thumbnail">Thumbnail
+                            <input required hidden type="file" name="thumbnail" id="thumbnail" />
+                            <span style={{fontSize:10}}>click to change</span>
+                        </label>
+                    </div>
+                    <div className="form-group " style={{flexDirection:'row'}}>
+                        <input type="checkbox" name="ispublished" id="ispublished" />
+                        <label htmlFor='ispublished'>Publish Now</label>
                     </div>
                 </div>
             </form>
