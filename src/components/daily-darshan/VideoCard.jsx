@@ -1,23 +1,40 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './VideoCard.module.css';
 
 const VideoCard = ({ video }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
+
+  const handlePlayClick = () => {
+    setIsPlaying(true);
+    videoRef.current?.play();
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.thumbnailWrapper}>
-        <img
-          src={video.thumbnail}
-          alt={video.title}
-          className={styles.thumbnail}
-        />
-        {/* Play button */}
-        <div className={styles.playOverlay}>
-          <div className={styles.playIcon}>
-            ▶
-          </div>
-        </div>
-        {/* Duration */}
-        <span className={styles.duration}>{formatDuration(video.duration)}</span>
+        {!isPlaying ? (
+          <>
+            <img
+              src={video.thumbnail}
+              alt={video.title}
+              className={styles.thumbnail}
+            />
+            <div className={styles.playOverlay} onClick={handlePlayClick}>
+              <div className={styles.playIcon}>▶</div>
+            </div>
+            <span className={styles.duration}>
+              {formatDuration(video.duration)}
+            </span>
+          </>
+        ) : (
+          <video
+            ref={videoRef}
+            className={styles.videoPlayer}
+            src={video.videoLink}
+            controls
+          />
+        )}
       </div>
 
       <div className={styles.details}>
@@ -28,10 +45,10 @@ const VideoCard = ({ video }) => {
   );
 };
 
-// Helper to format seconds to mm:ss
+// Format duration like 0:13
 const formatDuration = (seconds) => {
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
+  const mins = Math.floor(seconds);
+  const secs = Math.round((seconds - mins) * 60);
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
 

@@ -16,6 +16,7 @@ import PageMe from "./pages/pageme/PageMe";
 // import PhotoGallery from "./pages/photo-gallery/index"
 import NewGallery from "./pages/photo-gallery/NewGallery";
 import DailyDarshan from "./pages/daily-darshan";
+import AdminHome from "./pages/admin";
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
           <Route path="/terms-and-condition" element={<Terms />} />
           <Route path="/policy" element={<Policy />} />
           <Route path="/photo-gallery" element={<NewGallery />} />
+
+          <Route path="/admin" element={<AdminHome />} />
         </Routes>
         <Footer />
       </BrowserRouter>
