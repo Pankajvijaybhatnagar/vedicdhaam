@@ -22,7 +22,7 @@ const VideoPostList = ({ videoPosts }) => {
                         <div>
                             <h4>{post.title}</h4>
                             <p>{post.description}</p>
-                            <small>Uploaded on: {new Date(post.createdAt).toLocaleDateString()} | Duration: {post.duration}s</small>
+                            <small>Uploaded on: {new Date(post.createdAt).toLocaleDateString()} | Duration: {post.duration}s | views:{post.views} | owner:{post.owner.fullName}</small>
                             
                         </div>
                     </div>

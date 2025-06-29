@@ -3,6 +3,7 @@ import AdminLayout from '../../components/admin/AdminLayout'
 import conf from "../../conf/config"
 import VideoPostList from '../../components/admin/VideoPostList';
 import { Link } from 'react-router-dom';
+import CreateDailyDarshan from '../../components/admin/CreateDailyDarshan';
 
 const DailyDarshanCreate = () => {
   const [loading, setLoading] = React.useState(true);
@@ -16,7 +17,7 @@ const DailyDarshanCreate = () => {
           <div>Creating New Post</div>
           <Link to={'/admin/daily-darshan'}>View All</Link>
         </div>
-
+        <CreateDailyDarshan/>
       </AdminLayout>
     </div>
   )
