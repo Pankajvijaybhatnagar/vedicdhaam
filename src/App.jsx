@@ -18,6 +18,7 @@ import NewGallery from "./pages/photo-gallery/NewGallery";
 import DailyDarshan from "./pages/daily-darshan";
 import AdminHome from "./pages/admin";
 import AdminDailyDarshan from "./pages/admin/DailyDarshan";
+import AdminDailyDarshanCreate from "./pages/admin/DailyDarshanCreate";
 import LoginPage from "./components/login/LoginPage";
 import AuthLayout from "./utils/AuthLayout";
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/admin" element={<AuthLayout><AdminHome /></AuthLayout>} />
           <Route path="/admin/daily-darshan" element={<AuthLayout><AdminDailyDarshan /></AuthLayout>} />
+          <Route path="/admin/daily-darshan/new" element={<AuthLayout><AdminDailyDarshanCreate /></AuthLayout>} />
         </Routes>
         <Footer />
       </BrowserRouter>
