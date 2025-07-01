@@ -20,6 +20,7 @@
     "react-intersection-observer": "^9.5.2",
     "react-parallax-tilt": "^1.7.154",
     "react-particles": "^2.12.2",
+    "react-quill": "^2.0.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.28.1",
     "react-toastify": "^11.0.5",
