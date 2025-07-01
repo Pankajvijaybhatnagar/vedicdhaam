@@ -35,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/daily-darshan" element={<DailyDarshan />} />
+          <Route path="/daily-darshan/:id" element={<DailyDarshan />} />
           <Route path="/allpujas/:id" element={<AllPujaServices />} />
           <Route path="/dharmik" element={<PageMe/>} />
           <Route path="/puja/:id" element={<PujaPage />} />

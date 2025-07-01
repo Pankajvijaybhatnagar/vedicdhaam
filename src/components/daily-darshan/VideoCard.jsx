@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styles from './VideoCard.module.css';
+import { Link } from 'react-router-dom';
 
 const VideoCard = ({ video }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -40,6 +41,7 @@ const VideoCard = ({ video }) => {
       <div className={styles.details}>
         <h2 className={styles.title}>{video.title}</h2>
         <p className={styles.views}>{video.views} views</p>
+        <p className={styles.views}><Link to={`/daily-darshan/${video._id}`}> read more... </Link></p>
       </div>
     </div>
   );
