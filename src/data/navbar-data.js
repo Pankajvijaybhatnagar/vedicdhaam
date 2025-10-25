@@ -4,7 +4,7 @@ export const navbarData = {
   logo,
   phoneNo: "919215223030",
   navList: [
-    { title: "Darshan", link: "/daily-darshan" },
+    { title: "Darshan", link: "/" },
     { title: "Blogs", link: "/" },
     { title: "All Puja Services", link: "/allpujas/pujas" },
     // { title: "Dharmik yatra", link: "/dharmik" },
