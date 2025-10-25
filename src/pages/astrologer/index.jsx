@@ -1,14 +1,24 @@
 // src/pages/astrologer/index.jsx
 import { useState } from 'react';
 
+
 export default function AstrologerPage() {
-  const [form, setForm] = useState({ name: '', place: '', date: '', time: '' });
+  const [form, setForm] = useState({ 
+    name: '', 
+    email: '', 
+    phone: '', 
+    place: '', 
+    date: '', 
+    time: '' 
+  });
   const [submitted, setSubmitted] = useState(false);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +26,7 @@ export default function AstrologerPage() {
     // Form data is collected, you can process it as needed
     console.log('User data collected:', form);
   };
+
 
   return (
     <main className="astrology-page">
@@ -34,9 +45,11 @@ export default function AstrologerPage() {
         </div>
       </section>
 
+
       {/* Form Section - Moved to top */}
       <section className="section form-section">
         <h2 className="section-title">अपनी जानकारी दें | Get your reading</h2>
+
 
         {submitted && (
           <div className="alert alert-success">
@@ -45,6 +58,7 @@ export default function AstrologerPage() {
             Thanks! Your query will be answered within a short period of time.
           </div>
         )}
+
 
         <form className="astro-form" onSubmit={handleSubmit}>
           <div className="form-row">
@@ -59,6 +73,35 @@ export default function AstrologerPage() {
               placeholder="आपका नाम"
             />
           </div>
+          
+          <div className="form-row">
+            <label className="form-label" htmlFor="email">ईमेल | Email Address</label>
+            <input 
+              id="email" 
+              className="form-input" 
+              type="email"
+              name="email" 
+              value={form.email}
+              onChange={handleChange}
+              required 
+              placeholder="your@email.com"
+            />
+          </div>
+          
+          <div className="form-row">
+            <label className="form-label" htmlFor="phone">फोन नंबर | Phone Number</label>
+            <input 
+              id="phone" 
+              className="form-input" 
+              type="tel"
+              name="phone" 
+              value={form.phone}
+              onChange={handleChange}
+              required 
+              placeholder="+91 98765 43210"
+            />
+          </div>
+          
           <div className="form-row">
             <label className="form-label" htmlFor="place">जन्म स्थान | Place of Birth</label>
             <input 
@@ -71,6 +114,7 @@ export default function AstrologerPage() {
               placeholder="शहर, राज्य"
             />
           </div>
+          
           <div className="form-row form-row-two">
             <div>
               <label className="form-label" htmlFor="date">जन्म तिथि | Date of Birth</label>
@@ -97,11 +141,13 @@ export default function AstrologerPage() {
               />
             </div>
           </div>
+          
           <button className="submit-btn" type="submit">
             जानकारी भेजें | Submit Details
           </button>
         </form>
       </section>
+
 
       {/* Nakshatra Detailed Section */}
       <section className="section section-alt">
@@ -114,9 +160,10 @@ export default function AstrologerPage() {
             प्रत्येक नक्षत्र 13 अंश 20 कला का होता है और इसका अपना स्वामी ग्रह होता है।
           </p>
           <p className="para">
-            The 27 Nakshatras are lunar mansions that divide the zodiac into equal segments of 13°20'. Each Nakshatra is ruled by one of the nine planets and represents specific qualities, energies, and karmic patterns that influence your personality and life path [web:91][web:93].
+            The 27 Nakshatras are lunar mansions that divide the zodiac into equal segments of 13°20'. Each Nakshatra is ruled by one of the nine planets and represents specific qualities, energies, and karmic patterns that influence your personality and life path.
           </p>
         </div>
+
 
         <div className="grid-3">
           <div className="info-card">
@@ -130,7 +177,7 @@ export default function AstrologerPage() {
             <div className="card-icon">🎯</div>
             <h4 className="card-subtitle">नक्षत्र पाद | Nakshatra Pada</h4>
             <p className="card-text">
-              Each Nakshatra is divided into 4 padas (quarters) of 3°20' each, corresponding to the four navamsa divisions, refining predictions about career, relationships, and spiritual growth [web:93].
+              Each Nakshatra is divided into 4 padas (quarters) of 3°20' each, corresponding to the four navamsa divisions, refining predictions about career, relationships, and spiritual growth.
             </p>
           </div>
           <div className="info-card">
@@ -141,6 +188,7 @@ export default function AstrologerPage() {
             </p>
           </div>
         </div>
+
 
         <div className="highlight-box">
           <h4 className="highlight-title">27 नक्षत्र और उनके स्वामी | 27 Nakshatras & Lords</h4>
@@ -176,6 +224,7 @@ export default function AstrologerPage() {
         </div>
       </section>
 
+
       {/* Dasha System */}
       <section className="section">
         <h2 className="section-title">दशा प्रणाली | Dasha System</h2>
@@ -184,12 +233,13 @@ export default function AstrologerPage() {
           <h3 className="h3">विंशोत्तरी दशा | Vimshottari Dasha</h3>
           <p className="para">
             दशा शब्द संस्कृत के "दश" धातु से आया है जिसका अर्थ है "अवस्था" या "काल"। विंशोत्तरी दशा वैदिक ज्योतिष की सबसे महत्वपूर्ण भविष्यवाणी प्रणाली है। 
-            यह 120 वर्षों का एक चक्र है जो 9 ग्रहों में विभाजित है [web:90][web:91].
+            यह 120 वर्षों का एक चक्र है जो 9 ग्रहों में विभाजित है।
           </p>
           <p className="para">
-            The Vimshottari Dasha system provides exact timing of life events based on your Moon's Nakshatra at birth. It unfolds in cycles showing when specific planets activate their karmic results in your life. This 120-year cycle is divided among nine planets in specific sequences [web:90][web:93].
+            The Vimshottari Dasha system provides exact timing of life events based on your Moon's Nakshatra at birth. It unfolds in cycles showing when specific planets activate their karmic results in your life. This 120-year cycle is divided among nine planets in specific sequences.
           </p>
         </div>
+
 
         <div className="dasha-timeline">
           <h4 className="timeline-title">ग्रह दशा अवधि | Planetary Period Duration</h4>
@@ -233,21 +283,23 @@ export default function AstrologerPage() {
           </div>
         </div>
 
+
         <div className="grid-2">
           <div className="info-card accent">
             <h4 className="card-subtitle">महादशा | Mahadasha</h4>
             <p className="card-text">
-              यह मुख्य ग्रह काल है जो 6 से 20 वर्षों तक चलता है। महादशा आपके जीवन के बड़े अध्यायों को निर्धारित करती है - करियर, शादी, स्वास्थ्य आदि [web:90][web:93].
+              यह मुख्य ग्रह काल है जो 6 से 20 वर्षों तक चलता है। महादशा आपके जीवन के बड़े अध्यायों को निर्धारित करती है - करियर, शादी, स्वास्थ्य आदि।
             </p>
           </div>
           <div className="info-card accent">
             <h4 className="card-subtitle">अंतर्दशा | Antardasha</h4>
             <p className="card-text">
-              The sub-period within Mahadasha lasting months to years. Antardasha brings specific events and opportunities, accounting for about 30% of the overall effects during that time [web:90][web:93].
+              The sub-period within Mahadasha lasting months to years. Antardasha brings specific events and opportunities, accounting for about 30% of the overall effects during that time.
             </p>
           </div>
         </div>
       </section>
+
 
       {/* Hora System */}
       <section className="section section-alt">
@@ -257,12 +309,13 @@ export default function AstrologerPage() {
           <h3 className="h3">होरा क्या है? | What is Hora?</h3>
           <p className="para">
             होरा शब्द "अहोरात्र" से लिया गया है, जिसका अर्थ है "दिन और रात"। होरा ज्योतिष में दिन के प्रत्येक घंटे पर एक विशेष ग्रह का शासन होता है। 
-            यह प्रणाली मुहूर्त चुनने और दैनिक भविष्यवाणी के लिए अत्यंत उपयोगी है [web:92].
+            यह प्रणाली मुहूर्त चुनने और दैनिक भविष्यवाणी के लिए अत्यंत उपयोगी है।
           </p>
           <p className="para">
-            Hora divides each day into 24 hours, with each hour ruled by one of the seven classical planets (Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn). The ruling planet of the hour influences the nature of activities undertaken during that time [web:92].
+            Hora divides each day into 24 hours, with each hour ruled by one of the seven classical planets (Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn). The ruling planet of the hour influences the nature of activities undertaken during that time.
           </p>
         </div>
+
 
         <div className="hora-box">
           <h4 className="highlight-title">होरा का महत्व | Importance of Hora</h4>
@@ -274,6 +327,7 @@ export default function AstrologerPage() {
           </ul>
         </div>
       </section>
+
 
       {/* Basic Astrology */}
       <section className="section">
@@ -306,6 +360,7 @@ export default function AstrologerPage() {
           </div>
         </div>
       </section>
+
 
       {/* Panchang Section */}
       <section className="section section-alt">
@@ -340,6 +395,7 @@ export default function AstrologerPage() {
         </div>
       </section>
 
+
       {/* Closing CTA */}
       <section className="section cta-section">
         <div className="cta-box">
@@ -351,6 +407,7 @@ export default function AstrologerPage() {
           </p>
         </div>
       </section>
+
 
       <style jsx>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
